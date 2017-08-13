@@ -30,7 +30,7 @@ module Btgen
       content_tag :tbody do
         @rows.map do |row|
           content_tag :tr do
-            row.map do |cell|
+            Array(row).map do |cell|
               content_tag :td, cell
             end.inject(:+)
           end
