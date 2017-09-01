@@ -9,25 +9,31 @@ module Btgen
     end
 
     def expand_collapsible_label(target_id)
-      content_tag(:span, ' + ', href: "##{target_id}", data: {toggle: 'collapse'})
+      icon :plus, href: "##{target_id}", data: {toggle: 'collapse'}
     end
 
     def panel_with_body(*args)
 
-      final_class = 'panel-body'
-      collapsible = args.last[:collapsible]
-      body_options = {}
+      body_classes = ['panel-body']
 
-      if collapsible
-        final_class += ' collapse'
-        random_string = (0...8).map { (65 + rand(26)).chr }.join
-        body_options[:id] = "collapsible_#{random_string}"
-        final_title = [ expand_collapsible_label(body_options[:id]), args.last[:title]].compact.inject(:+)
-        args.last[:title] = sanitize(final_title, attributes: %w(href data-toggle)).html_safe
+      random_string = (0...8).map { (65 + rand(26)).chr }.join
+      body_options = {id: "collapsible_#{random_string.downcase}"}
+      title_fragments = []
+
+      if args.last[:icon]
+        title_fragments << icon(args.last[:icon][:type].to_sym, class: args.last[:icon][:class])
       end
 
+      if args.last[:collapsible]
+        body_classes << 'collapse'
+        title_fragments << expand_collapsible_label(body_options[:id])
+      end
+
+      title_fragments << sanitize(args.last[:title])
+      args.last[:title] = title_fragments.compact.inject(:+).html_safe
+
       panel(*args) do
-        body_options[:class] = final_class
+        body_options[:class] = body_classes.join(' ')
         content_tag :div, body_options do
           yield
         end
