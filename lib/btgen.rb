@@ -1,5 +1,7 @@
-require_relative 'btgen/helper'
+require 'railtie' if defined?(Rails)
 
-module Btgen
-  ActionView::Base.send :include, Helper
-end
+require 'bh'
+require 'simple_form'
+require 'jquery-rails'
+require 'jquery-ui-rails'
+require 'bootstrap-sass'

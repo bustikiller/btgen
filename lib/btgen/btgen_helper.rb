@@ -1,7 +1,8 @@
 require_relative 'bootstrap_table'
 
+
 module Btgen
-  module Helper
+  module BtgenHelper
     def bootstrap_table(args = {})
       table = BootstrapTable.new args
       yield table
