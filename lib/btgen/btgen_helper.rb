@@ -30,7 +30,7 @@ module Btgen
         title_fragments << expand_collapsible_label(body_options[:id])
       end
 
-      title_fragments << sanitize(args.last[:title])
+      title_fragments << sanitize(args.last[:title].to_s)
       args.last[:title] = title_fragments.compact.inject(:+).html_safe
 
       panel(*args) do
