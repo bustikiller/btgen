@@ -1,4 +1,7 @@
 # Btgen
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/06b8d8be6bbb4bdd9bb322194d6ff9ef)](https://app.codacy.com/app/bustikiller/btgen?utm_source=github.com&utm_medium=referral&utm_content=bustikiller/btgen&utm_campaign=badger)
+
 Short description and motivation.
 
 ## Usage
