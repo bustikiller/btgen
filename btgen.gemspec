@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bh", "~>1.3.6"
   s.add_dependency "rails", ">= 3.0.0"
   s.add_dependency "simple_form", ">=3.5","<5.0"
-  s.add_dependency "jquery-rails", "~>4.3.1"
+  s.add_dependency "jquery-rails", ">=4.3.1", "<4.5.0"
   s.add_dependency "jquery-ui-rails", "~>6.0.1"
   s.add_dependency "bootstrap-sass", ">=3.3.7","<3.5.0"
 
